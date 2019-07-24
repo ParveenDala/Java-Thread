@@ -10,9 +10,9 @@ class RetrievePrice {
 
     Set<Integer> getPrices() {
         Set<Integer> prices = Collections.synchronizedSet(new HashSet<>());
-        CompletableFuture<Void> task1 = CompletableFuture.runAsync(new Task(1, "flipkart", prices));
-        CompletableFuture<Void> task2 = CompletableFuture.runAsync(new Task(1, "flipkart", prices));
-        CompletableFuture<Void> task3 = CompletableFuture.runAsync(new Task(1, "flipkart", prices));
+        CompletableFuture<Void> task1 = CompletableFuture.runAsync(new Task(1, "Flipkart", prices));
+        CompletableFuture<Void> task2 = CompletableFuture.runAsync(new Task(2, "Amazon", prices));
+        CompletableFuture<Void> task3 = CompletableFuture.runAsync(new Task(3, "Snapdeal", prices));
         CompletableFuture<Void> allTasks = CompletableFuture.allOf(task1, task2, task3);
         try {
             allTasks.get(3, TimeUnit.SECONDS);
